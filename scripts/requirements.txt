@@ -1,10 +1,4 @@
 requests
-http
-os
-pathlib
-shututil
-base64
-json
-dotenv
+python-dotenv
 pyyaml
 python-slugify
