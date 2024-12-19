@@ -3,7 +3,7 @@ name: Update Recipes
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 
@@ -24,7 +24,7 @@ jobs:
       - name: Install Requirements
         run: pip install -r scripts/requirements.txt
 
-      - name: Execute Python script
+      - name: Fetch paprika recipes
         run: |
           python scripts/get_recipes.py
         env:
@@ -38,7 +38,7 @@ jobs:
 
       - name: setup git config
         id: get_data
-        if: false #disables commit as data does not need to be saved during testing
+        if: true #enable commit
         run: |
           git config --local user.name ${{ secrets.USERNAME_GITHUB }}
           git config --local user.email ${{ secrets.EMAIL }}
