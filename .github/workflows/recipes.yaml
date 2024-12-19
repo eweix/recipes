@@ -21,8 +21,8 @@ jobs:
         with:
           python-version: 3.8
 
-      # - name: Install Requirements
-      #   run: pip install scripts/requirements.txt
+      - name: Install Requirements
+        run: pip install scripts/requirements.txt
 
       - name: Execute Python script
         run: |
@@ -31,6 +31,10 @@ jobs:
         # You must create these repository secrets with your Paprika credentials
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
+
+      - name: Generate recipe pages
+        run: |
+          python scripts/generate_pages.py
 
       - name: setup git config
         id: get_data
