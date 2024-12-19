@@ -1,0 +1,17 @@
+{{ define "main" }}
+<main>
+  {{ $taxonomy := "categories" }} {{ $section := "recipes" }} {{ range $term,
+  $weightedPages := index site.Taxonomies $taxonomy }} {{ $termPage :=
+  site.GetPage (printf "%s/%s" $taxonomy $term) }}
+  <h2>
+    <!--<a href="{{ $termPage.RelPermalink }}">{{ $termPage.LinkTitle }}</a>-->
+    {{ $termPage.LinkTitle }}
+  </h2>
+  <ul>
+    {{ range where $weightedPages "Page.Section" $section }}
+    <li><a href="{{ .RelPermalink}}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</main>
+{{ end }}

@@ -1,0 +1,21 @@
+Title = "Cookbook"
+
+[outputs]
+   home = [ "HTML", "JSON" ]
+
+[[Menus.main]]
+  Name = "Categories"
+  URL = "/categories"
+[[Menus.main]]
+  Name = "Favorites"
+  URL = "/favorites"
+# [[Menus.main]]
+#   Name = "Search"
+#   URL = "/search"
+
+[taxonomies]
+  category = "categories"
+
+[permalinks]
+  categories = "/categories/:slug"
+  recipes = "/:slug"

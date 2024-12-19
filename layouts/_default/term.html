@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<ul class="recipe-list">
+  {{ range .Pages }} {{ partial "recipe-card.html" . }} {{ end }}
+</ul>
+{{ end }}
