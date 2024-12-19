@@ -9,9 +9,9 @@ Title = "Cookbook"
 [[Menus.main]]
   Name = "Favorites"
   URL = "/favorites"
-# [[Menus.main]]
-#   Name = "Search"
-#   URL = "/search"
+[[Menus.main]]
+  Name = "Search"
+  URL = "/search"
 
 [taxonomies]
   category = "categories"
