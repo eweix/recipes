@@ -63,7 +63,7 @@ def export_recipes():
         recipe = json.loads(data)["result"]
         # https://gist.github.com/mattdsteele/7386ec363badfdeaad05a418b9a1f30a
         print(recipe["name"])
-        # if recipe["photo_large"]:
+        # if recipe["photo_large"]: # <- uncomment all of this to get photos
         #     recipe["photo"] = recipe["photo_large"]
         #     addr = recipe["photo_large"][:-4]
         #     c.request("GET", "/api/v1/sync/photo/" + addr + "/", headers=headers)
@@ -146,8 +146,5 @@ def export_recipes():
     with open(r"./data/recipes.yaml", "w") as file:
         yaml.safe_dump(recipes, file)
 
-
-# if __name__ == "__main__":
-#     check_and_run()
 
 check_and_run()
