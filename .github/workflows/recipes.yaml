@@ -43,8 +43,8 @@ jobs:
           git config --local user.name ${{ secrets.USERNAME_GITHUB }}
           git config --local user.email ${{ secrets.EMAIL }}
           git pull origin master
-          git add _data/*
-          git add assets/images/recipes/*
+          git add data/*
+          git add content/recipes/*
           git commit -am "Update recipes" || echo "::set-output name=status::Nothing to update"
 
       - name: print variables
