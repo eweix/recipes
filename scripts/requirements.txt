@@ -1,2 +1,10 @@
 requests
+http
+os
+pathlib
+shututil
+base64
+json
+dotenv
+pyyaml
 python-slugify
