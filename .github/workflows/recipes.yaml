@@ -1,11 +1,18 @@
-name: Update Recipes
+name: Fetch Recipes
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  # run workflow once per week on Monday
+  # schedule: 
+    # - cron: "0 0 * * 1"
 
+  # allows workflow to be manually activated
+  # workflow_dispatch:
+
+# sets permissions for the automatically-generated GitHub token
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
 
