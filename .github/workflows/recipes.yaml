@@ -26,7 +26,7 @@ jobs:
 
       - name: Execute Python script
         run: |
-          python get_recipes.py
+          python scripts/get_recipes.py
         env:
         # You must create these repository secrets with your Paprika credentials
           EMAIL: ${{ secrets.EMAIL }}
