@@ -1,5 +1,5 @@
 title = "Cookbook"
-baseURL = "https://eweix.github.io"
+baseURL = "https://eweix.github.io/"
 enableGitInfo = 'true'
 useResourceCacheWhen = 'always'
 
@@ -17,4 +17,4 @@ useResourceCacheWhen = 'always'
   URL = "/favorites"
 
 [permalinks]
-  recipes = "/:slug"
+  recipes = "/r/:slug"
