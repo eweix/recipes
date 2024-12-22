@@ -1,21 +1,20 @@
-Title = "Cookbook"
+title = "Cookbook"
+baseURL = "https://eweix.github.io"
+enableGitInfo = 'true'
+useResourceCacheWhen = 'always'
 
-[outputs]
-   home = [ "HTML", "JSON" ]
+# author info
+[params.author]
+  name = 'Elliott Weix'
+  email = 'elliott@weix.us'
+  short = 'eweix'
 
 [[Menus.main]]
-  Name = "Categories"
-  URL = "/categories"
+  Name = "Tags"
+  URL = "/tags"
 [[Menus.main]]
   Name = "Favorites"
   URL = "/favorites"
-[[Menus.main]]
-  Name = "Search"
-  URL = "/search"
-
-[taxonomies]
-  category = "categories"
 
 [permalinks]
-  categories = "/categories/:slug"
   recipes = "/:slug"
