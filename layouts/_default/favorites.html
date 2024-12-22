@@ -3,7 +3,7 @@
   <h1>{{ .Title }}</h1>
   <ul class="recipe-list">
     {{ range where .Site.Pages ".Params.on_favorites" true}} {{ partial
-    "recipe-card.html" . }} {{ end }}
+    "recipe-list-entry.html" . }} {{ end }}
   </ul>
 </main>
 {{ end }}
