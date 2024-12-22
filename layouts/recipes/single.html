@@ -1,0 +1,44 @@
+{{ define "main" }}
+<main>
+  <article>
+    <h1>{{ .Title }} {{ if .Params.on_favorites -}}&Star;{{- end -}}</h1>
+    {{- with .Params.tags }}
+    <span>
+      Tags {{ range . }} {{ $termPage := site.GetPage (printf "%s/%s" "tags" . )
+      }} |
+      <a href="{{ $termPage.RelPermalink }}">{{ $termPage.LinkTitle }}</a>
+      {{- end -}}
+    </span>
+    {{- end -}} {{ if or .Params.cook_time .Params.prep_time .Params.total_time
+    }}
+    <span>
+      {{ with.Params.prep_time }}| Prep time: {{ . }}{{ end }} {{ with
+      .Params.cook_time }}| Cook time: {{ . }}{{ end }} {{ with
+      .Params.total_time }}| Total time: {{ . }}{{ end }}
+    </span>
+    {{ end -}} {{ with .Params.source_url }}<br />
+    <p>Adapted from <a href="{{ . }}" target="_blank">{{ . }}</a></p>
+    {{ end -}} {{- with .Params.description}}
+    <p>{{ . }}</p>
+    {{ end }} {{- with .Params.ingredients -}}
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      {{ range . }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+    {{ end }} {{ with .Params.directions }}
+    <h2>Cooking Directions</h2>
+
+    <ol class="instructions">
+      {{ range . }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ol>
+    {{ end }} {{ with .Params.notes }}
+    <h2>Notes</h2>
+    <p>{{ . }}</p>
+    {{ end }}
+  </article>
+</main>
+{{ end }}
