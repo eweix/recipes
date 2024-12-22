@@ -12,9 +12,15 @@ useResourceCacheWhen = 'always'
 [[Menus.main]]
   Name = "Tags"
   URL = "/tags"
+  weight = 20
 [[Menus.main]]
   Name = "Favorites"
   URL = "/favorites"
+  weight = 10
+[[Menus.main]]
+  Name = "About"
+  URL = "/about"
+  weight = 30
 
 [permalinks]
-  recipes = "/r/:slug"
+  recipes = ":slug"
