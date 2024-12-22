@@ -6,8 +6,8 @@ on:
     branches: ["main"]
 
   # run workflow once per week on Monday
-  # schedule: 
-    # - cron: "0 0 * * 1"
+  schedule: 
+    - cron: "0 0 * * 1"
 
   # allows workflow to be manually activated
   workflow_dispatch:
