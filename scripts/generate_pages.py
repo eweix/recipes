@@ -8,10 +8,13 @@ with open(r"./data/recipes.yaml", "r") as stream:
     recipes = []  # make a list to track recipes
     for recipe in data:
         # get data for recipes set to be shared
-        if len(recipe["categories"]) > 0:  # only share if has been categorized
+        if (len(recipe["categories"]) > 0) & (
+            recipe["rating"] > 2
+        ):  # only share if has been categorized and used
             # format frontmatter for Hugo site generater
             recipe["Title"] = recipe["name"]
             recipe["slug"] = slugify(recipe["name"])
+            recipe["tags"] = recipe["categories"]
 
             # save recipe to list
             recipes.append(recipe["name"])
