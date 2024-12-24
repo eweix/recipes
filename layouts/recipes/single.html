@@ -2,12 +2,11 @@
 <main>
   <article>
     <h1>{{ .Title }} {{ if .Params.on_favorites -}}&Star;{{- end -}}</h1>
-    {{- with .Params.tags }}
+    {{- with .GetTerms "tags" }}
     <span>
-      Tags {{ range . }} {{ $termPage := site.GetPage (printf "%s/%s" "tags" . )
-      }} |
-      <a href="{{ $termPage.RelPermalink }}">{{ $termPage.LinkTitle }}</a>
-      {{- end -}}
+      Tags: {{ range $k, $v := . }} {{- if $k }}, {{ end }}
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{- end }}
     </span>
     {{- end -}} {{ if or .Params.cook_time .Params.prep_time .Params.total_time
     }}
@@ -16,10 +15,17 @@
       .Params.cook_time }}| Cook time: {{ . }}{{ end }} {{ with
       .Params.total_time }}| Total time: {{ . }}{{ end }}
     </span>
-    {{ end -}} {{ with .Params.source_url }}<br />
-    <p>Adapted from <a href="{{ . }}" target="_blank">{{ . }}</a></p>
+    {{ end -}} {{ if or .Params.source_url .Params.source }}
+    <p>
+      Adapted from {{ with .Params.source_url }}
+      <a href="{{ . }}" target="_blank">
+        {{ end }}{{ with .Params.source }}{{ . }}{{ end }}{{ with
+        .Params.source_url}}
+      </a>
+      {{ end }}
+    </p>
     {{ end -}} {{- with .Params.description}}
-    <p>{{ . }}</p>
+    <p>{{ . | markdownify }}</p>
     {{ end }} {{- with .Params.ingredients -}}
     <h2>Ingredients</h2>
     <ul class="ingredients">
@@ -30,14 +36,14 @@
     {{ end }} {{ with .Params.directions }}
     <h2>Cooking Directions</h2>
 
-    <ol class="instructions">
+    <div class="instructions">
       {{ range . }}
-      <li>{{ . }}</li>
+      <p>{{ . | markdownify }}</p>
       {{ end }}
-    </ol>
+    </div>
     {{ end }} {{ with .Params.notes }}
     <h2>Notes</h2>
-    <p>{{ . }}</p>
+    <p>{{ . | markdownify }}</p>
     {{ end }}
   </article>
 </main>
